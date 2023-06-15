@@ -37,3 +37,35 @@ class Warrior(Character):
         if self.newHP > self.maxHP:
             self.newHP = self.maxHP
         print(f"{self.name} defended and restored {defenseBonus} health.")
+
+class Mage(Character):
+    def __init__(self, name):
+        super().__init__(name, "Mage", 80)
+    
+    def attack(self, target):
+        spellDamage = random.randint(15, 25)
+        target.takeDamage(spellDamage)
+        print(f"{self.name} cast a spell on {target.name} for {spellDamage} damage!")
+    
+    def defend(self):
+        defenseBonus = random.randint(3, 8)
+        self.newHP += defenseBonus
+        if self.newHP > self.maxHP:
+            self.newHP = self.maxHP
+        print(f"{self.name} used a protective shield and restored {defenseBonus} health.")
+
+class Archer(Character):
+    def __init__(self, name):
+        super().__init__(name, "Archer", 90)
+    
+    def attack(self, target):
+        arrowDamage = random.randint(12, 18)
+        target.takeDamage(arrowDamage)
+        print(f"{self.name} shot an arrow at {target.name} for {arrowDamage} damage!")
+    
+    def defend(self):
+        defenseBonus = random.randint(2, 5)
+        self.newHP += defenseBonus
+        if self.newHP > self.maxHP:
+            self.newHP = self.maxHP
+        print(f"{self.name} took cover and restored {defenseBonus} health.")
