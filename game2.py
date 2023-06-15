@@ -69,3 +69,36 @@ class Archer(Character):
         if self.newHP > self.maxHP:
             self.newHP = self.maxHP
         print(f"{self.name} took cover and restored {defenseBonus} health.")
+
+# Add more character classes with different attacks
+class Wizard(Character):
+    def __init__(self, name):
+        super().__init__(name, "Wizard", 70)
+    
+    def attack(self, target):
+        spellDamage = random.randint(18, 25)
+        target.takeDamage(spellDamage)
+        print(f"{self.name} cast a powerful spell on {target.name} for {spellDamage} damage!")
+    
+    def defend(self):
+        defenseBonus = random.randint(4, 9)
+        self.newHP += defenseBonus
+        if self.newHP > self.maxHP:
+            self.newHP = self.maxHP
+        print(f"{self.name} summoned a magical barrier and restored {defenseBonus} health.")
+
+class Knight(Character):
+    def __init__(self, name):
+        super().__init__(name, "Knight", 110)
+    
+    def attack(self, target):
+        sword_damage = random.randint(8, 15)
+        target.takeDamage(sword_damage)
+        print(f"{self.name} attacked {target.name} with a sword for {sword_damage} damage!")
+    
+    def defend(self):
+        defenseBonus = random.randint(6, 12)
+        self.newHP += defenseBonus
+        if self.newHP > self.maxHP:
+            self.newHP = self.maxHP
+        print(f"{self.name} raised a shield and restored {defenseBonus} health.")
